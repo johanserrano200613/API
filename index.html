@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COVID API — Práctica</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🦠 COVID-19 API</h1>
+    <p class="subtitulo">Práctica de endpoints con <code>disease.sh</code></p>
+  </header>
+
+  <main>
+
+    <!-- ENDPOINT 1: Global -->
+    <section class="card" id="seccion-global">
+      <div class="card-header">
+        <span class="badge">GET</span>
+        <h2>Endpoint 1 — Datos Globales</h2>
+      </div>
+      <p class="url-label">🔗 <code>https://disease.sh/v3/covid-19/all</code></p>
+      <button onclick="obtenerGlobal()">Consultar</button>
+      <div class="resultado" id="resultado-global">
+        <p class="placeholder">Presiona el botón para ver los datos.</p>
+      </div>
+    </section>
+
+    <!-- ENDPOINT 2: País específico -->
+    <section class="card" id="seccion-pais">
+      <div class="card-header">
+        <span class="badge">GET</span>
+        <h2>Endpoint 2 — Datos por País</h2>
+      </div>
+      <p class="url-label">🔗 <code>https://disease.sh/v3/covid-19/countries/{pais}</code></p>
+      <div class="input-group">
+        <input type="text" id="input-pais" placeholder="Ej: colombia, usa, spain..." />
+        <button onclick="obtenerPais()">Consultar</button>
+      </div>
+      <div class="resultado" id="resultado-pais">
+        <p class="placeholder">Ingresa un país y presiona el botón.</p>
+      </div>
+    </section>
+
+    <!-- ENDPOINT 3: Top países -->
+    <section class="card" id="seccion-top">
+      <div class="card-header">
+        <span class="badge">GET</span>
+        <h2>Endpoint 3 — Top 5 Países Afectados</h2>
+      </div>
+      <p class="url-label">🔗 <code>https://disease.sh/v3/covid-19/countries?sort=cases</code></p>
+      <button onclick="obtenerTop()">Consultar</button>
+      <div class="resultado" id="resultado-top">
+        <p class="placeholder">Presiona el botón para ver el ranking.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Datos en tiempo real vía <a href="https://disease.sh" target="_blank">disease.sh</a> — Práctica de Fetch API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

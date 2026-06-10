@@ -1,0 +1,303 @@
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --accent: #58a6ff;
+  --accentGlow: rgba(88, 166, 255, 0.15);
+  --verde: #3fb950;
+  --rojo: #f85149;
+  --amarillo: #d29922;
+  --texto: #e6edf3;
+  --textoSuave: #8b949e;
+  --badge: #1f6feb;
+  --radio: 10px;
+  --fuente: 'Courier New', monospace;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--texto);
+  font-family: var(--fuente);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--texto);
+}
+
+.subtitulo {
+  color: var(--textoSuave);
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.subtitulo code {
+  color: var(--accent);
+}
+
+/* =============================================
+   MAIN LAYOUT
+   ============================================= */
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* =============================================
+   CARDS
+   ============================================= */
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radio);
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.badge {
+  background-color: var(--badge);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.url-label {
+  color: var(--textoSuave);
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+}
+
+.url-label code {
+  color: var(--accent);
+}
+
+/* =============================================
+   BOTONES E INPUTS
+   ============================================= */
+button {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-family: var(--fuente);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 160px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--texto);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-family: var(--fuente);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--accent);
+}
+
+/* =============================================
+   RESULTADO
+   ============================================= */
+.resultado {
+  margin-top: 1.2rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  min-height: 60px;
+  font-size: 0.82rem;
+  transition: border-color 0.3s;
+}
+
+.resultado.activo {
+  border-color: var(--verde);
+}
+
+.resultado.error {
+  border-color: var(--rojo);
+}
+
+.placeholder {
+  color: var(--textoSuave);
+}
+
+/* =============================================
+   GRID DE STATS (Endpoint 1 y 2)
+   ============================================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+}
+
+.stat-box {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.stat-box .etiqueta {
+  font-size: 0.7rem;
+  color: var(--textoSuave);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.stat-box .valor {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.valor.casos     { color: var(--amarillo); }
+.valor.muertes   { color: var(--rojo); }
+.valor.activos   { color: var(--accent); }
+.valor.rec       { color: var(--verde); }
+.valor.pruebas   { color: #bc8cff; }
+
+.nombre-pais {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+}
+
+/* =============================================
+   TABLA TOP (Endpoint 3)
+   ============================================= */
+.tabla-top {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.tabla-top th {
+  text-align: left;
+  padding: 6px 10px;
+  color: var(--textoSuave);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabla-top td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabla-top tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-top tr:hover td {
+  background-color: var(--accentGlow);
+}
+
+.rank {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* =============================================
+   LOADING
+   ============================================= */
+.cargando {
+  color: var(--textoSuave);
+  font-style: italic;
+  animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.78rem;
+  color: var(--textoSuave);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
